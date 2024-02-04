@@ -108,7 +108,7 @@ export default function BasicTable() {
     }
   };
 
-  if (+!totalCount) {
+  if (!+totalCount) {
     return null;
   }
 
