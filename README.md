@@ -1,4 +1,4 @@
-<h3><a href="hot-link.vercel.app" target="blank">Website</a></h3>
+<h3><a href="https://hot-link.vercel.app" target="_blank">Website</a></h3>
 
 Install: "npm install"
 
