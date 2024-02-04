@@ -4,6 +4,7 @@ const initialState = {
   currentUserName: null,
   accessToken: null,
   tokenType: null,
+  toggleGetLink: false
 };
 
 const userSlice = createSlice({
@@ -22,11 +23,14 @@ const userSlice = createSlice({
       state.accessToken = null;
       state.tokenType = null
     },
+    getLinkSuccess: (state, action) => {
+      state.toggleGetLink = action.payload
+    },
   },
 });
 
 export const {
-  signUpSuccess, signInUserSuccess, signOutUserSuccess
+  signUpSuccess, signInUserSuccess, signOutUserSuccess, getLinkSuccess
 } = userSlice.actions;
 
 export default userSlice.reducer;

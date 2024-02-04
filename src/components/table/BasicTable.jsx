@@ -19,7 +19,7 @@ export default function BasicTable() {
   const [sortByCounter, setSortByCounter] = useState("asc_counter");
   const [totalCount, setTotalCount] = useState(0);
   const [allLinks, setAllLinks] = useState([]);
-  const { accessToken, tokenType } = useSelector(
+  const { accessToken, tokenType, toggleGetLink } = useSelector(
     (state) => state.user
   );
 
@@ -80,6 +80,7 @@ export default function BasicTable() {
 
     handleSubmit();
   }, [
+    toggleGetLink,
     accessToken,
     tokenType,
     sortByShort,
@@ -107,7 +108,7 @@ export default function BasicTable() {
     }
   };
 
-  if (!totalCount) {
+  if (+!totalCount) {
     return null;
   }
 

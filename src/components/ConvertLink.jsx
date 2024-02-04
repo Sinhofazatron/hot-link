@@ -2,16 +2,18 @@ import { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 import { FaRegCopy } from "react-icons/fa6";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getLinkSuccess } from "../redux/user/userSlice";
 
 export default function ConvertLink() {
     
   const [targetLink, setTargetLink] = useState("");
   const [loading, setLoading] = useState("");
   const [shortLink, setShortLink] = useState("");
-  const { accessToken, tokenType } = useSelector(
+  const { accessToken, tokenType, toggleGetLink } = useSelector(
     (state) => state.user
   );
+  const dispatch = useDispatch()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +39,7 @@ export default function ConvertLink() {
         return;
       }
       setShortLink(data.short);
+      dispatch(getLinkSuccess(!toggleGetLink));
       setLoading(false);
     } catch (error) {
       toast.error(error.message);
