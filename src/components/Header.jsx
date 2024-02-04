@@ -26,7 +26,7 @@ export default function Header() {
       </div>
       <div className="flex gap-4 text-slate-700">
         <p>{currentUserName ? currentUserName : ""}</p>
-        {currentUserName || accessToken ? (
+        { accessToken ? (
           <button
             onClick={handleSignOut}
             className="rounded bg-slate-500 hover:bg-slate-600 px-2 transition text-white"
