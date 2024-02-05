@@ -55,7 +55,7 @@ export default function BasicTable() {
     const handleSubmit = async () => {
       try {
         const res = await fetch(
-          `https://front-test.hex.team/api/statistics?order=${sortByShort}&order=${sortByTarget}&order=${sortByCounter}&offset=0&limit=50`,
+          `https://front-test.hex.team/api/statistics?order=${sortByShort}&order=${sortByTarget}&order=${sortByCounter}&offset=0&limit=0`,
           {
             method: "GET",
             headers: {
